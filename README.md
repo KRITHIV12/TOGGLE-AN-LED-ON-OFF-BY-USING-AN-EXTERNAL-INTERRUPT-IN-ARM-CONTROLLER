@@ -1,9 +1,7 @@
 # TOGGLE-AN-LED-ON-OFF-BY-USING-AN-EXTERNAL-INTERRUPT-IN-ARM-CONTROLLER
 
 **Aim:**
-
 To Interface a Digital Input (user push button ) to ARM development board and write a program to obtain the data and flash the led.
-
 **Components required:** 
 
 1.	STM32 CUBE IDE
@@ -28,85 +26,40 @@ The full form of an ARM is an advanced reduced instruction set computer (RISC) m
 12.	Connect the stm nucleo board and click on run.
 
 **STM 32 CUBE PROGRAM** : https://www.youtube.com/watch?v=oJc0seuBbzI
-
+```asm
 #include "main.h" 
-
 #include "stdbool.h"
-
 bool buttonstatus; 
-
-
 void pushbutton();
-
 void SystemClock_Config(void);
-
 static void MX_GPIO_Init(void); 
-
 int main(void)
-
 {
-
 HAL_Init();
-
 SystemClock_Config(); 
-
 MX_GPIO_Init();
-
 while (1)
-
 {
-
 pushbutton();
-
 }
-
 }
-
 void pushbutton()
-
 {
-
 buttonstatus=HAL_GPIO_ReadPin(GPIOC, GPIO_PIN_13); 
-
 if(buttonstatus==0)
-
 {
-
 HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
-
 HAL_Delay(200);
-
 HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
-
 HAL_Delay(200);
-
 }
-
 else
-
 {
-
 HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
-
 }
-
 }
-
+```
 **OUTPUT:**
-
-<img width="1280" height="576" alt="image" src="https://github.com/user-attachments/assets/de6d27b4-1877-4dd1-a8d3-5548d534eff7" />
-
-<img width="1280" height="576" alt="image" src="https://github.com/user-attachments/assets/950722da-ac66-432f-a81b-413ee2a57d63" />
-
-<BR>
-<BR>
-<BR>
-<BR>
-<BR>
-
-
-
+<img width="1280" height="960" alt="image" src="https://github.com/user-attachments/assets/3150170e-501c-4de8-be86-63fcb1ce6a0c" />
 **Result :**
-
 Interfacing a digital Input (Pushbutton ) with ARM microcontroller based IOT development is executed and the results are verified.
-
